@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Games Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #1e1e2f;
+      color: white;
+    }
+
+    header {
+      background-color: #12122b;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .game-card {
+      background-color: #2d2d44;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      position: relative;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .game-title {
+      margin-top: 10px;
+      font-size: 1.2em;
+    }
+
+    .fullscreen-btn {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+
+    .fullscreen-btn:hover {
+      background-color: #357abd;
+    }
+  </style>
+</head>
+<body>
+  <header>Jayrizz games</header>
+
+  <div class="games-grid">
+    <!-- Game 1 -->
+    <div class="game-card">
+      <iframe id="game1" src="https://agame.fun/P/homeIndex"></iframe>
+      <div class="game-title">A game.fun</div>
+      <button class="fullscreen-btn" onclick="goFullscreen('game1')">Fullscreen</button>
+    </div>
+
+    <!-- Game 2 -->
+    <div class="game-card">
+      <iframe id="game2" src="https://szvy.googleclassroom.latinliturgy.com/"></iframe>
+      <div class="game-title">Szvy Central</div>
+      <button class="fullscreen-btn" onclick="goFullscreen('game2')">Fullscreen</button>
+    </div>
+
+    <!-- Game 3 -->
+    <div class="game-card">
+      <iframe id="game3" src="https://meximathurbanned.global.ssl.fastly.net/"></iframe>
+      <div class="game-title">Frogies Arcade</div>
+      <button class="fullscreen-btn" onclick="goFullscreen('game3')">Fullscreen</button>
+    </div>
+  </div>
+
+  <script>
+    function goFullscreen(id) {
+      const iframe = document.getElementById(id);
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.mozRequestFullScreen) { // Firefox
+        iframe.mozRequestFullScreen();
+      } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) { // IE/Edge
+        iframe.msRequestFullscreen();
+      }
+    }
+  </script>
+</body>
+</html>
